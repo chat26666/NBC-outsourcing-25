@@ -22,13 +22,12 @@ jobs:
           docker push $IMAGE
 
       - uses: appleboy/ssh-action@master
-        env:
-          IMAGE: chat27/my-app:${{ github.sha }}
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            IMAGE=chat27/my-app:${{ github.sha }}
             sudo docker pull $IMAGE
             sudo docker stop my-app || true
             sudo docker rm   my-app || true
