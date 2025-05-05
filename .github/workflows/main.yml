@@ -25,10 +25,7 @@ jobs:
         run: ls -R build || true
 
       - name: Publish test results
-        uses: actions/upload-artifact@v1
-        with:
-          name: test-results
-          path: build/test-results/test
+        run: cat ./build/test-results/test/*.xml
       
 
   
