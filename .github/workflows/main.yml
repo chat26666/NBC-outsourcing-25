@@ -16,5 +16,5 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '17'
-          cache: gradl
+          cache: gradle
       - run: ./gradlew clean test
