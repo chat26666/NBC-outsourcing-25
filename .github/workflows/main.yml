@@ -22,7 +22,7 @@ jobs:
       - run: ./gradlew clean test --info
 
       - name: Publish test results
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: test-results
           path: build/test-results/test/*.xml
